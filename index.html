@@ -24,8 +24,8 @@
             border: 4px solid transparent;
             border-top: 4px solid white;
             border-radius: 50%;
-            width: 80px; /* Daha büyük boyut */
-            height: 80px; /* Daha büyük boyut */
+            width: 80px;
+            height: 80px;
             animation: spin 1s linear infinite;
         }
 
@@ -157,8 +157,8 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            background-color: black; /* Siyah arka plan */
-            color: red; /* Kırmızı yazı */
+            background-color: black;
+            color: red;
             padding: 20px;
             font-size: 14px;
             text-align: center;
@@ -181,20 +181,20 @@
         #datetime {
             position: fixed;
             bottom: 60px;
-            left: -300px; /* Başlangıçta ekranın dışında */
+            left: -300px;
             color: red;
             font-size: 14px;
             opacity: 0;
-            animation: slideDate 2s 2s forwards; /* 2 saniye gecikmeli animasyon */
+            animation: slideDate 2s 2s forwards;
         }
 
         @keyframes slideDate {
             from {
-                transform: translateX(0); /* Soldan kayarak gelmesi */
+                transform: translateX(0);
                 opacity: 0;
             }
             to {
-                transform: translateX(300px); /* Ekranın içine kayarak gelmesi */
+                transform: translateX(300px);
                 opacity: 1;
             }
         }
@@ -224,7 +224,7 @@
         <h2>Oyunlar</h2>
         <ul>
             <li>
-                <a href="https://www.fullprogramlarindir.net/templar-2-indir.html" target="_blank">
+                <a href="https://mega.nz/file/I3tC3Tzb#-e4HaWlB5zfMC2Q-ulL7itOIKY8C5Dqqqdffy2MuhDs" target="_blank">
                     Templar 2 Full İndir – PC
                 </a>
             </li>
@@ -234,7 +234,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://drive.google.com/file/d/171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB/view" target="_blank">
+                <a href="https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB&export=download&authuser=0" target="_blank">
                     HOİ4 – PC
                 </a>
                 <a> |-| </a>
@@ -259,43 +259,29 @@
 
     <footer>
         ENDERBAD_64 tarafından yapılmıştır..<br>
-     Sitedeki oyunlar bana ait değildir!
+        Sitedeki oyunlar bana ait değildir.<br>
+        Sadece hızlı ulaşım içindir!
     </footer>
 
     <div id="datetime"></div>
 
     <script>
         function showCategory(category) {
-            // Tüm kategorileri gizle
             const categories = document.querySelectorAll('.category');
-            categories.forEach(function(cat) {
-                cat.style.display = 'none';
-            });
-
-            // Seçilen kategoriyi göster
-            const selectedCategory = document.getElementById(category);
-            if (selectedCategory) {
-                selectedCategory.style.display = 'block';
-            }
+            categories.forEach(cat => cat.style.display = 'none');
+            document.getElementById(category).style.display = 'block';
         }
 
         function updateDateTime() {
             const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-
-            const formattedTime = `${hours}:${minutes}:${seconds}`;
-            const formattedDate = `${day}/${month}/${year}`;
-
-            document.getElementById('datetime').innerText = `${formattedDate} ${formattedTime}`;
+            document.getElementById('datetime').innerText = now.toLocaleString('tr-TR');
         }
 
-        setInterval(updateDateTime, 1000); // Güncel saati her saniye güncelle
-        updateDateTime(); // Sayfa yüklendiğinde hemen ilk defa çalıştır
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
     </script>
 </body>
 </html>
+
+
+
