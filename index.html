@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crack Game</title>
   <!-- Google Fonts: Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* CSS Değişkenleri ile modern renk paleti */
     :root {
@@ -39,7 +38,7 @@
       to { opacity: 1; }
     }
     
-    /* Yüklenme Animasyonu */
+    /* Yüklenme Animasyonu (ilk sayfa yükleme) */
     .loader {
       position: fixed;
       top: 0;
@@ -69,6 +68,20 @@
     
     @keyframes spin {
       to { transform: rotate(360deg); }
+    }
+    
+    /* Geçiş Loader’u – Hakkımızda sayfasına geçerken kullanılır */
+    #transition-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--loader-bg);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
     }
     
     /* Başlık */
@@ -160,6 +173,17 @@
       animation: fadeIn 1s forwards;
     }
     
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
     /* Tarih & Saat */
     #datetime {
       position: fixed;
@@ -170,6 +194,43 @@
       animation: fadeIn 1s forwards;
     }
     
+    /* Hakkımızda Sayfası */
+    #about-page {
+      display: none;
+      padding: 20px;
+      max-width: 800px;
+      margin: 80px auto;
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    
+    #about-page h2 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    
+    #about-page p {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    #about-page button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: var(--button-bg);
+      color: var(--text-color);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    #about-page button:hover {
+      background-color: var(--button-hover-bg);
+      transform: translateY(-2px);
+    }
+    
     /* Kategori Gizleme ve Gösterme */
     .category {
       display: none;
@@ -177,7 +238,13 @@
   </style>
 </head>
 <body>
+  <!-- İlk Yükleme Loader'ı -->
   <div class="loader">
+    <div class="spinner"></div>
+  </div>
+  
+  <!-- Geçiş Loader'ı (Hakkımızda geçişinde kullanılır) -->
+  <div id="transition-loader">
     <div class="spinner"></div>
   </div>
   
@@ -233,15 +300,30 @@
     </ul>
   </div>
   
+  <!-- Hakkımızda Sayfası -->
+  <div id="about-page">
+    <h2>Hakkımızda</h2>
+    <p>
+      Bu site, kolay yoldan oyun indirmek için yapılmıştır.<br>
+      Geliştiriciler: ENDERBAD_64 & Semih.<br>
+      İyi oyunlar! ! !
+    </p>
+    <button onclick="showMainMenu()">Ana Menü</button>
+  </div>
+  
+  <!-- Footer -->
   <footer>
     Bu site ENDERBAD_64 tarafından yapılmıştır.<br>
     Sitedeki Dosyalar bana ait değildir!
+    <a href="#" id="about-link" onclick="showAbout(); return false;">Hakkımızda</a>
   </footer>
   
+  <!-- Tarih & Saat -->
   <div id="datetime"></div>
   
   <script>
     function showCategory(category) {
+      // Ana içerik alanındaki kategorileri gösterme işlemi
       const categories = document.querySelectorAll('.category');
       categories.forEach(cat => cat.style.display = 'none');
       document.getElementById(category).style.display = 'block';
@@ -254,6 +336,44 @@
     
     setInterval(updateDateTime, 1000);
     updateDateTime();
+    
+    // Hakkımızda sayfasına geçiş
+    function showAbout() {
+      // Ana içerik elemanlarını gizle
+      document.querySelector('h1').style.display = 'none';
+      document.querySelector('.category-buttons').style.display = 'none';
+      const games = document.getElementById('games');
+      if (games) games.style.display = 'none';
+      const apps = document.getElementById('apps');
+      if (apps) apps.style.display = 'none';
+      document.querySelector('footer').style.display = 'none';
+      
+      // Geçiş Loader'ını göster
+      document.getElementById('transition-loader').style.display = 'flex';
+      
+      // Loader süresi kadar (örneğin 2 saniye) bekleyip Hakkımızda sayfasını göster
+      setTimeout(function() {
+        document.getElementById('transition-loader').style.display = 'none';
+        document.getElementById('about-page').style.display = 'block';
+      }, 2000);
+    }
+    
+    // Ana menüye geri dönüş
+    function showMainMenu() {
+      // Hakkımızda sayfasını gizle
+      document.getElementById('about-page').style.display = 'none';
+      // Geçiş Loader'ını göster
+      document.getElementById('transition-loader').style.display = 'flex';
+      
+      setTimeout(function() {
+        document.getElementById('transition-loader').style.display = 'none';
+        // Ana içerik elemanlarını tekrar göster
+        document.querySelector('h1').style.display = 'block';
+        document.querySelector('.category-buttons').style.display = 'flex';
+        document.querySelector('footer').style.display = 'block';
+      }, 2000);
+    }
   </script>
 </body>
 </html>
+
