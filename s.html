@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/icon.png">
+    <title>Oyunlar</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+.game {
+    background-color: #222;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.game img {
+width: 480px;
+}
+
+button {
+    background-color: #009400;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0a5200;
+    box-shadow: 0px 0px 10px black;
+    transition: all 1s;
+}
+
+.review {
+    background-color: #333;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body> 
+        <section id="games">
+            <h2>Tüm Oyunlar</h2>
+            <button id="backButton" onclick="goToMainMenu()">⮌ Geri Dön</button>
+
+            <script>
+            function goToMainMenu() {
+                window.location.href = 'index.html'; // Ana menü sayfanın ismi neyse onu yaz
+            }
+            </script>
+            
+            <style>
+            #backButton {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                padding: 10px 15px;
+                background-color: #ff4d4d;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            
+            #backButton:hover {
+                background-color: #cc0000;
+            }
+            #loadingScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    /* Yükleme Çubuğu */
+    .progressBar {
+      width: 80%;
+      height: 20px;
+      background-color: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .progress {
+      width: 0%;
+      height: 100%;
+      background-color: #ffffff;
+      transition: width 2s ease-in-out;
+    }
+
+    .loadingText {
+      font-size: 24px;
+      color: #797979;
+      margin-top: 20px;
+    }
+            </style>
+            
+            <div id="loadingScreen">
+                <div class="loadingText">Sayfa Yükleniyor...</div>
+                <div class="progressBar">
+                  <div class="progress"></div>
+                </div>
+              </div>
+            <div class="game">
+                <img src="image/mysummer.jpg" alt="Oyun 1">
+                <h2>My Summer Car</h2>
+                <p>My Summer Car, araç simülasyon oyunu olmasının yanında bir hayatta kalma oyunudur</p>
+                <button onclick="downloadGame('oyun1.zip')">İndir</button>
+                <button onclick="downloadGame('oyun1.zip')">Save dosyası</button>
+            </div>
+            <div class="game">
+                <img src="image/farming.jpg" alt="Oyun 2">
+                <h2>Farming Simülatör 2013</h2>
+                <p>Farming Simulator, Giants Software tarafından geliştirilen çiftlik simülasyonu üzerine kurulu video oyunu serisidir.</p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="image/templar 2.jpg" alt="Oyun 2">
+                <h2>Templar 2</h2>
+                <p>Kızıl Veba, yeryüzünde destansı bir kaos yaratarak ölenleri korkunç iblislere dönüştürdü.</p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="image/thefrost.jpg" alt="Oyun 2">
+                <h2>The Forest</h2>
+                <p>The Forest Endnight Games tarafından geliştirilen ve yayınlanan bir hayatta kalma video oyunudur. </p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="image/subnautav.jpeg" alt="Oyun 2">
+                <p>Subnautica, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan açık dünya aksiyon-macera oyunudur </p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="image/ascrak4.jpg" alt="Oyun 2">
+                <h2>Assasins Creed 4 Black Flag</h2>
+                <p>Assassin's Creed IV: Black Flag, Ubisoft Montreal tarafından geliştirilen ve Ubisoft tarafından yayımlanan 2013 yapımı bir aksiyon-macera video oyunudur.</p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="image/hoi4.jpg" alt="Oyun 2">
+                <h2>Oyun 2</h2>
+                <p>Hearts of Iron IV, Paradox Development Studio tarafından geliştirilen ve Paradox Interactive tarafından yayımlanan büyük strateji savaş oyunudur. </p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+                <button onclick="downloadGame('oyun4.zip')">Yama</button>
+            </div>
+            <div class="game">
+                <img src="image/cs16.png" alt="Oyun 2">
+                <h2>CS 1.6</h2>
+                <p>Counter-Strike (Half-Life: Counter-Strike olarak da bilinir), Valve tarafından geliştirilen birinci şahıs nişancı oyunudur.</p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="image/gta4.jpg" alt="Oyun 2">
+                <h2>Gta IV</h2>
+                <p>Grand Theft Auto IV, Rockstar North tarafından geliştirilen ve Rockstar Games tarafından yayınlanan 2008 yapımı bir aksiyon-macera oyunudur</p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+            <div class="game">
+                <img src="nfs2.jpg" alt="Oyun 2">
+                <h2>Need For Speed 2</h2>
+                <p>Need for Speed: Underground 2, EA Black Box tarafından geliştirilip Electronic Arts tarafından 2004 Mayıs ayında yayımlanmıştır.</p>
+                <button onclick="downloadGame('oyun2.zip')">İndir</button>
+            </div>
+        </section>
+    </main>
+    <script>
+  
+        window.onload = function() {
+          document.querySelector(".progress").style.width = "100%";
+          setTimeout(function() {
+            document.getElementById("loadingScreen").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+          }, 3000);
+        };
+      </script>
+</body>
+</html>
