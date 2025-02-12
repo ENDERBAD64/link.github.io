@@ -205,6 +205,39 @@
     #about button:hover {
       background-color: var(--accent-color);
     }
+    
+    /* Mobil Tarayıcı Desteği */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+        margin-top: 20px;
+      }
+      .category-buttons {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+      }
+      .category-buttons button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+      ul {
+        max-width: 90%;
+        margin: 10px auto;
+      }
+      .category {
+        height: calc(100vh - 150px);
+      }
+      footer {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+      #datetime {
+        font-size: 0.8rem;
+        bottom: 50px;
+        left: 10px;
+      }
+    }
   </style>
 </head>
 <body>
