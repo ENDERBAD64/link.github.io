@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -37,11 +38,6 @@
     @keyframes fadeIn {
       to { opacity: 1; }
     }
-
-    @keyframes slideIn {
-      from { transform: translateX(-100%); }
-      to { transform: translateX(0); }
-    }
     
     /* Yüklenme Animasyonu */
     .loader {
@@ -80,7 +76,12 @@
       margin-top: 40px;
       font-size: 2.5rem;
       letter-spacing: 1px;
-      animation: slideIn 1s ease-out;
+      animation: slideDown 0.8s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
     
     /* Kategori Butonları */
@@ -287,9 +288,9 @@
       <li><a href="https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB" target="_blank">HOİ4</a></li>
       <li><a href="https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view" target="_blank">HOİ4 Yama</a></li>
       <li><a href="https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8" target="_blank">My Summer Car</a></li>
-      <li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74ure
-
-<li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74ureYYw6fM9I1mcIK0T" target="_blank">Farming Simulator 2022</a></li>
+      <li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74urev4MivgHCLZyDINn" target="_blank">Forest</a></li>
+      <li><a href="https://drive.usercontent.google.com/download?id=1zwZdRJ9fKuZiGAuitM8Jc5Lie6ZFNlOf" target="_blank">Subnautica</a></li>
+      <li><a href="https://drive.usercontent.google.com/download?id=1h-l9kdu7FfG-q-9wfJ0PGPFjEaG6Fp6P&export=download&authuser=0" target="_blank">Assasins Creed 4 Black Flag</a></li>
     </ul>
   </div>
   
@@ -297,48 +298,68 @@
   <div id="apps" class="category">
     <h2>Uygulamalar</h2>
     <ul>
-      <li><a href="https://example.com" target="_blank">Example App 1</a></li>
-      <li><a href="https://example.com" target="_blank">Example App 2</a></li>
-      <li><a href="https://example.com" target="_blank">Example App 3</a></li>
+      <li><a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh" target="_blank">Ublock-origin-lite – Eklenti</a></li>
+      <li><a href="https://drive.google.com/file/d/1kR6SgzVHUVCmCDlj771iQYxRqlKV9gsv/view" target="_blank">Revo Uninstaller Pro</a></li>
     </ul>
   </div>
   
   <!-- Footer -->
   <footer>
-    <p>© 2025 Crack Games. Tüm hakları saklıdır.</p>
+    Bu site ENDERBAD_64 tarafından yapılmıştır. 
+    <a onclick="showAbout()">Hakkımızda</a> | 
+    <a onclick="showCategory('update')">Son Güncellemeler</a>
   </footer>
   
-  <!-- Tarih ve Saat -->
+  <!-- Tarih & Saat -->
   <div id="datetime"></div>
   
+  <!-- Hakkımızda Sayfası -->
+  <div id="about" class="category">
+    <h2>Hakkımızda</h2>
+    <p>Bu site, Kolay oyun erişimi için yapılmıştır; herhangi bir maddi geliri yoktur.<br>
+       Geliştiriciler: ENDERBAD_64 & Semih</p>
+    <button onclick="goToMainMenu()">Ana Menü</button>
+  </div>
+  
+  <!-- Son Güncellemeler Sayfası -->
+  <div id="update" class="category">
+    <h2>Son Güncellemeler</h2>
+       <p> V3.0 Beta version<br>
+      -Arayüz hataları onarıldı<p>
+    <p>V2.9 Beta version<br>
+       - Mobil desteği eklenmiştir, artık mobil arayüz daha stabil.</p>
+    <button onclick="goToMainMenu()">Ana Menü</button>
+  </div>
+  
   <script>
-    // Tarih ve saat gösterimi
-    function updateDatetime() {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, '0');
-      const minutes = now.getMinutes().toString().padStart(2, '0');
-      const seconds = now.getSeconds().toString().padStart(2, '0');
-      const day = now.toLocaleDateString('tr-TR', { weekday: 'long' });
-      const timeString = `${day} - ${hours}:${minutes}:${seconds}`;
-      document.getElementById('datetime').innerText = timeString;
-    }
-    setInterval(updateDatetime, 1000);
-    
-    // Kategori gösterme
     function showCategory(category) {
-      document.querySelectorAll('.category').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
       document.getElementById(category).style.display = 'block';
     }
-
-    // Yüklenme animasyonunun kaldırılması
-    window.addEventListener('load', () => {
-      document.querySelector('.loader').style.display = 'none';
-      document.body.style.opacity = '1';
-    });
-
-    // İlk başta oyunlar kategorisini göster
-    showCategory('games');
+    
+    function showAbout() {
+      // Ana içeriği gizle, geçici efektle Hakkımızda sayfasını göster
+      document.querySelector('h1').style.display = 'none';
+      document.querySelector('.category-buttons').style.display = 'none';
+      document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+        document.getElementById('about').style.display = 'block';
+      }, 1000);
+    }
+    
+    function goToMainMenu() {
+      location.reload();
+    }
+    
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('datetime').innerText = now.toLocaleString('tr-TR');
+    }
+    
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
   </script>
 </body>
 </html>
-
