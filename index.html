@@ -147,11 +147,43 @@
       text-decoration: underline;
     }
     
+    /* Hakkımızda ve Son Güncellemeler Animasyonu */
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+
+    /* Hakkımızda ve Son Güncellemeler Animasyonlu Görünüm */
+    #about, #update {
+      display: none;
+      animation: slideIn 1s forwards;
+    }
+
     /* Kategori Alanı – Her Zaman Kaydırma */
     .category {
       display: none;
-      height: calc(100vh - 200px);
-      overflow-y: scroll;
+    }
+
+    .category.active {
+      display: block;
+      animation: slideIn 1s forwards;
     }
     
     /* Footer */
@@ -285,12 +317,7 @@
     <ul>
       <li><a href="https://mega.nz/file/I3tC3Tzb#-e4HaWlB5zfMC2Q-ulL7itOIKY8C5Dqqqdffy2MuhDs" target="_blank">Templar 2</a></li>
       <li><a href="https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg" target="_blank">Farming Simulator 2013</a></li>
-      <li><a href="https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB" target="_blank">HOİ4</a></li>
-      <li><a href="https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view" target="_blank">HOİ4 Yama</a></li>
-      <li><a href="https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8" target="_blank">My Summer Car</a></li>
-      <li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74urev4MivgHCLZyDINn" target="_blank">Forest</a></li>
-      <li><a href="https://drive.usercontent.google.com/download?id=1zwZdRJ9fKuZiGAuitM8Jc5Lie6ZFNlOf" target="_blank">Subnautica</a></li>
-      <li><a href="https://drive.usercontent.google.com/download?id=1h-l9kdu7FfG-q-9wfJ0PGPFjEaG6Fp6P&export=download&authuser=0" target="_blank">Assasins Creed 4 Black Flag</a></li>
+      <li><a href="https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg" target="_blank">Grand Theft Auto V</a></li>
     </ul>
   </div>
   
@@ -298,68 +325,70 @@
   <div id="apps" class="category">
     <h2>Uygulamalar</h2>
     <ul>
-      <li><a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh" target="_blank">Ublock-origin-lite – Eklenti</a></li>
-      <li><a href="https://drive.google.com/file/d/1kR6SgzVHUVCmCDlj771iQYxRqlKV9gsv/view" target="_blank">Revo Uninstaller Pro</a></li>
+      <li><a href="#">Spotify Premium</a></li>
+      <li><a href="#">Adobe Photoshop 2023</a></li>
     </ul>
   </div>
   
-  <!-- Footer -->
-  <footer>
-    Bu site ENDERBAD_64 tarafından yapılmıştır. 
-    <a onclick="showAbout()">Hakkımızda</a> | 
-    <a onclick="showCategory('update')">Son Güncellemeler</a>
-  </footer>
-  
-  <!-- Tarih & Saat -->
-  <div id="datetime"></div>
-  
-  <!-- Hakkımızda Sayfası -->
-  <div id="about" class="category">
+  <!-- Hakkımızda ve Son Güncellemeler -->
+  <div id="about">
     <h2>Hakkımızda</h2>
-    <p>Bu site, Kolay oyun erişimi için yapılmıştır; herhangi bir maddi geliri yoktur.<br>
-       Geliştiriciler: ENDERBAD_64 & Semih</p>
-    <button onclick="goToMainMenu()">Ana Menü</button>
+    <p>Crack Games, çeşitli popüler oyunlar ve yazılımlar ile ilgilenen bir platformdur. Amacımız kullanıcılara kaliteli içerikler sunmaktır.</p>
+    <button onclick="hideContent('about')">Geri</button>
   </div>
-  
-  <!-- Son Güncellemeler Sayfası -->
-  <div id="update" class="category">
-    <h2>Son Güncellemeler</h2>
+
+  <div id="update">
+      <h2>Son Güncellemeler</h2>
+       <p> V3.1 Beta version<br>
+        -Yeni animasyonlar (hakkımızda&son güncellemeler)<br>
+-Arayüz hataları onarıldı<p>
        <p> V3.0 Beta version<br>
       -Arayüz hataları onarıldı<p>
     <p>V2.9 Beta version<br>
        - Mobil desteği eklenmiştir, artık mobil arayüz daha stabil.</p>
-    <button onclick="goToMainMenu()">Ana Menü</button>
+    <button onclick="hideContent('update')">Geri</button>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Crack Games</p>
+  </footer>
   
+  <!-- Tarih ve Saat -->
+  <div id="datetime">
+    <p id="time"></p>
+  </div>
+
   <script>
+    // Tarih ve saat güncellemeleri
+    function updateTime() {
+      const date = new Date();
+      const time = date.toLocaleString();
+      document.getElementById('time').innerText = time;
+    }
+    setInterval(updateTime, 1000);
+
+    // Kategori gösterimi
     function showCategory(category) {
-      document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
-      document.getElementById(category).style.display = 'block';
+      document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
+      document.getElementById(category).classList.add('active');
+    }
+
+    // Hakkımızda ve Son Güncellemeler Sayfasını Gösterme
+    function showContent(content) {
+      document.getElementById(content).style.display = 'block';
     }
     
-    function showAbout() {
-      // Ana içeriği gizle, geçici efektle Hakkımızda sayfasını göster
-      document.querySelector('h1').style.display = 'none';
-      document.querySelector('.category-buttons').style.display = 'none';
-      document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
-      document.body.style.opacity = '0';
+    function hideContent(content) {
+      document.getElementById(content).style.display = 'none';
+    }
+    
+    // Sayfa Yüklenirken Başlangıçta Yükleme Animasyonunu Kapatma
+    window.onload = () => {
       setTimeout(() => {
-        document.body.style.opacity = '1';
-        document.getElementById('about').style.display = 'block';
-      }, 1000);
-    }
-    
-    function goToMainMenu() {
-      location.reload();
-    }
-    
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById('datetime').innerText = now.toLocaleString('tr-TR');
-    }
-    
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
+        document.querySelector('.loader').style.display = 'none';
+      }, 2500);
+    };
   </script>
 </body>
 </html>
