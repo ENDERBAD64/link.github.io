@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -50,7 +51,7 @@
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      /* Süreyi kısalttık */
+      /* Süre kısaltıldı */
       animation: fadeOut 1.5s forwards 2s;
     }
     
@@ -175,9 +176,11 @@
       animation: fadeIn 1s forwards;
     }
     
-    /* Kategori Gizleme ve Gösterme */
+    /* Kategori Gizleme ve Gösterme + Her Zaman Kaydırma */
     .category {
       display: none;
+      height: calc(100vh - 200px);
+      overflow-y: scroll;
     }
     
     /* Hakkımızda Sayfası */
@@ -264,7 +267,7 @@
     }
     
     function showAbout() {
-      // Tüm ana içeriği gizle ve geçici bir "loader" efekti verelim
+      // Ana içeriği gizleyip geçici efekt verelim
       document.querySelector('h1').style.display = 'none';
       document.querySelector('.category-buttons').style.display = 'none';
       document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
@@ -289,4 +292,3 @@
   </script>
 </body>
 </html>
-
