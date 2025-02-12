@@ -1,292 +1,242 @@
+<!DOCTYPE html>  <html lang="tr">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="icon" href="image/icon.png">  
+  <title>Oyunlar</title>  
+  <style>  
+    /* Genel Stil */  
+    body {  
+      font-family: Arial, sans-serif;  
+      background-color: #121212;  
+      color: #ffffff;  
+      margin: 0;  
+      padding: 0;  
+    }  /* Main İçerik */  
+main {  
+  padding: 20px;  
+  margin-bottom: 80px; /* Footer alanı için alt boşluk */  
+}  
+  
+section {  
+  margin-bottom: 30px;  
+}  
+  
+/* Oyun Kartları */  
+.game {  
+  background-color: #222;  
+  padding: 15px;  
+  margin: 10px 0;  
+  border-radius: 8px;  
+}  
+  
+.game img {  
+  width: 100%;  
+  max-width: 480px;  
+  height: auto;  
+  display: block;  
+  margin: 0 auto;  
+}  
+  
+button {  
+  background-color: #009400;  
+  color: #ffffff;  
+  padding: 10px 15px;  
+  border: none;  
+  cursor: pointer;  
+  border-radius: 5px;  
+  font-size: 16px;  
+  margin: 5px;  
+}  
+  
+button:hover {  
+  background-color: #0a5200;  
+  box-shadow: 0px 0px 10px black;  
+  transition: all 1s;  
+}  
+  
+/* Geri Dön Butonu */  
+#backButton {  
+  position: fixed;  
+  top: 10px;  
+  right: 10px;  
+  padding: 10px 15px;  
+  background-color: #ff4d4d;  
+  color: white;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+  font-size: 16px;  
+  z-index: 100;  
+}  
+  
+#backButton:hover {  
+  background-color: #cc0000;  
+}  
+  
+/* Yükleme Ekranı */  
+#loadingScreen {  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  width: 100%;  
+  height: 100vh;  
+  background-color: black;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  justify-content: center;  
+  z-index: 9999;  
+}  
+  
+.progressBar {  
+  width: 80%;  
+  height: 20px;  
+  background-color: #333;  
+  border-radius: 10px;  
+  overflow: hidden;  
+  margin-top: 20px;  
+}  
+  
+.progress {  
+  width: 0%;  
+  height: 100%;  
+  background-color: #ffffff;  
+  transition: width 2s ease-in-out;  
+}  
+  
+.loadingText {  
+  font-size: 24px;  
+  color: #797979;  
+  margin-top: 20px;  
+}  
+  
+/* Footer */  
+footer {  
+  position: fixed;  
+  bottom: 0;  
+  width: 100%;  
+  background-color: #121212;  
+  color: #e91e63;  
+  padding: 15px;  
+  font-size: 0.9rem;  
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);  
+  text-align: center;  
+  z-index: 50;  
+}  
+  
+footer a {  
+  color: #03a9f4;  
+  margin: 0 5px;  
+  text-decoration: none;  
+  cursor: pointer;  
+}  
+  
+/* Mobil Tarayıcı Desteği */  
+@media (max-width: 600px) {  
+  button {  
+    font-size: 14px;  
+    padding: 8px 12px;  
+  }  
+  #backButton {  
+    font-size: 14px;  
+    padding: 8px 12px;  
+  }  
+  .game {  
+    padding: 10px;  
+  }  
+  .loadingText {  
+    font-size: 20px;  
+  }  
+}
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="image/icon.png">
-  <title>Oyunlar</title>
-  <style>
-    /* Genel Stil */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-    }
+  </style>  
+</head>  
+<body>  
+  <!-- Yükleme Ekranı -->  
+  <div id="loadingScreen">  
+    <div class="loadingText">Sayfa Yükleniyor...</div>  
+    <div class="progressBar">  
+      <div class="progress"></div>  
+    </div>  
+  </div>    <!-- Geri Dön Butonu -->  <button id="backButton" onclick="goToMainMenu()">Geri Dön</button>
+
+  <main>  
+    <section id="games">  
+      <h2>Tüm Oyunlar</h2>  <!-- My Summer Car (Ana sayfadaki "My Summer Car" linki) -->  
+  <div class="game">  
+    <img src="mysummer.jpg" alt="My Summer Car">  
+    <h2>My Summer Car</h2>  
+    <p>My Summer Car, araç simülasyon oyunu olmasının yanında bir hayatta kalma oyunudur.</p>  
+    <button onclick="window.open('https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8', '_blank')">İndir</button>  
+    <button onclick="window.open('https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8', '_blank')">Save dosyası</button>  
+  </div>  
     
-    /* Main İçerik */
-    main {
-      padding: 20px;
-      margin-bottom: 80px; /* Footer alanı için alt boşluk */
-    }
+  <!-- Farming Simulator 2013 -->  
+  <div class="game">  
+    <img src="farming.jpg" alt="Farming Simulator 2013">  
+    <h2>Farming Simulator 2013</h2>  
+    <p>Farming Simulator, Giants Software tarafından geliştirilen çiftlik simülasyonu üzerine kurulu video oyunu serisidir.</p>  
+    <button onclick="window.open('https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg', '_blank')">İndir</button>  
+  </div>  
     
-    section {
-      margin-bottom: 30px;
-    }
+  <!-- Templar 2 -->  
+  <div class="game">  
+    <img src="templar 2.jpg" alt="Templar 2">  
+    <h2>Templar 2</h2>  
+    <p>Kızıl Veba, yeryüzünde destansı bir kaos yaratarak ölenleri korkunç iblislere dönüştürdü.</p>  
+    <button onclick="window.open('https://mega.nz/file/I3tC3Tzb#-e4HaWlB5zfMC2Q-ulL7itOIKY8C5Dqqqdffy2MuhDs', '_blank')">İndir</button>  
+  </div>  
     
-    /* Oyun Kartları */
-    .game {
-      background-color: #222;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      /* Animasyon eklendi */
-      animation: fadeInUp 0.8s ease-out;
-    }
+  <!-- HOİ4 & HOİ4 Yama -->  
+  <div class="game">  
+    <img src="hoi4.jpg" alt="Hearts of Iron IV">  
+    <h2>Hearts of Iron IV</h2>  
+    <p>Hearts of Iron IV, Paradox Development Studio tarafından geliştirilen ve Paradox Interactive tarafından yayımlanan büyük strateji savaş oyunudur.</p>  
+    <button onclick="window.open('https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB', '_blank')">İndir</button>  
+    <button onclick="window.open('https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view', '_blank')">Yama</button>  
+  </div>  
     
-    .game img {
-      width: 100%;
-      max-width: 480px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+  <!-- Forest -->  
+  <div class="game">  
+    <img src="thefrost.jpg" alt="Forest">  
+    <h2>Forest</h2>  
+    <p>Forest, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan bir hayatta kalma oyunudur.</p>  
+    <button onclick="window.open('https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74urev4MivgHCLZyDINn', '_blank')">İndir</button>  
+  </div>  
     
-    button {
-      background-color: #009400;
-      color: #ffffff;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      margin: 5px;
-    }
+  <!-- Subnautica -->  
+  <div class="game">  
+    <img src="subnautav.jpeg" alt="Subnautica">  
+    <h2>Subnautica</h2>  
+    <p>Subnautica, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan açık dünya aksiyon-macera oyunudur.</p>  
+    <button onclick="window.open('https://drive.usercontent.google.com/download?id=1zwZdRJ9fKuZiGAuitM8Jc5Lie6ZFNlOf', '_blank')">İndir</button>  
+  </div>  
     
-    button:hover {
-      background-color: #0a5200;
-      box-shadow: 0px 0px 10px black;
-      transition: all 1s;
-    }
+  <!-- Assasins Creed 4 Black Flag -->  
+  <div class="game">  
+    <img src="ascrak4.jpg" alt="Assasins Creed 4 Black Flag">  
+    <h2>Assasins Creed 4 Black Flag</h2>  
+    <p>Assassin's Creed IV: Black Flag, Ubisoft Montreal tarafından geliştirilen ve Ubisoft tarafından yayımlanan 2013 yapımı bir aksiyon-macera video oyunudur.</p>  
+    <button onclick="window.open('https://drive.usercontent.google.com/download?id=1h-l9kdu7FfG-q-9wfJ0PGPFjEaG6Fp6P&export=download&authuser=0', '_blank')">İndir</button>  
+  </div>  
     
-    /* Geri Dön Butonu */
-    #backButton {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 10px 15px;
-      background-color: #ff4d4d;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      z-index: 100;
-    }
-    
-    #backButton:hover {
-      background-color: #cc0000;
-    }
-    
-    /* Yükleme Ekranı */
-    #loadingScreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: black;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    
-    .progressBar {
-      width: 80%;
-      height: 20px;
-      background-color: #333;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 20px;
-    }
-    
-    .progress {
-      width: 0%;
-      height: 100%;
-      background-color: #ffffff;
-      transition: width 2s ease-in-out;
-    }
-    
-    .loadingText {
-      font-size: 24px;
-      color: #797979;
-      margin-top: 20px;
-    }
-    
-    /* Footer */
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #121212;
-      color: #e91e63;
-      padding: 15px;
-      font-size: 0.9rem;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
-      text-align: center;
-      z-index: 50;
-      /* Animasyon eklendi */
-      animation: fadeIn 1s ease-out;
-    }
-    
-    footer a {
-      color: #03a9f4;
-      margin: 0 5px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    
-    /* Mobil Tarayıcı Desteği */
-    @media (max-width: 600px) {
-      button {
-        font-size: 14px;
-        padding: 8px 12px;
-      }
-      #backButton {
-        font-size: 14px;
-        padding: 8px 12px;
-      }
-      .game {
-        padding: 10px;
-      }
-      .loadingText {
-        font-size: 20px;
-      }
-    }
-    
-    /* Yeni Animasyonlar */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    
-    /* Uygulanan Animasyonlar */
-    #games h2 {
-      animation: fadeInUp 0.8s ease-out;
-    }
-    
-    /* Her oyun kartı için artan gecikme */
-    #games .game:nth-child(1) { animation-delay: 0.2s; }
-    #games .game:nth-child(2) { animation-delay: 0.4s; }
-    #games .game:nth-child(3) { animation-delay: 0.6s; }
-    #games .game:nth-child(4) { animation-delay: 0.8s; }
-    #games .game:nth-child(5) { animation-delay: 1s; }
-    #games .game:nth-child(6) { animation-delay: 1.2s; }
-    #games .game:nth-child(7) { animation-delay: 1.4s; }
-    
-  </style>
-</head>
-<body>
-  <!-- Yükleme Ekranı -->
-  <div id="loadingScreen">
-    <div class="loadingText">Sayfa Yükleniyor...</div>
-    <div class="progressBar">
-      <div class="progress"></div>
-    </div>
-  </div>
-  
-  <!-- Geri Dön Butonu -->
-  <button id="backButton" onclick="goToMainMenu()">Geri Dön</button>
-  
-  <main>
-    <section id="games">
-      <h2>Tüm Oyunlar</h2>
+</section>
+
+  </main>    <!-- Footer -->    <footer>  
+    Bu sayfa LostBlood tarafından yapılmıştır.   
+  </footer>    <script>  
+    // Geri Dön İşlevi  
+    function goToMainMenu() {  
+      window.location.href = 'index.html';  
+    }  
       
-      <!-- My Summer Car (Ana sayfadaki "My Summer Car" linki) -->
-      <div class="game">
-        <img src="mysummer.jpg" alt="My Summer Car">
-        <h2>My Summer Car</h2>
-        <p>My Summer Car, araç simülasyon oyunu olmasının yanında bir hayatta kalma oyunudur.</p>
-        <button onclick="window.open('https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8', '_blank')">İndir</button>
-        <button onclick="window.open('https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8', '_blank')">Save dosyası</button>
-      </div>
-      
-      <!-- Farming Simulator 2013 -->
-      <div class="game">
-        <img src="farming.jpg" alt="Farming Simulator 2013">
-        <h2>Farming Simulator 2013</h2>
-        <p>Farming Simulator, Giants Software tarafından geliştirilen çiftlik simülasyonu üzerine kurulu video oyunu serisidir.</p>
-        <button onclick="window.open('https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg', '_blank')">İndir</button>
-      </div>
-      
-      <!-- Templar 2 -->
-      <div class="game">
-        <img src="templar 2.jpg" alt="Templar 2">
-        <h2>Templar 2</h2>
-        <p>Kızıl Veba, yeryüzünde destansı bir kaos yaratarak ölenleri korkunç iblislere dönüştürdü.</p>
-        <button onclick="window.open('https://mega.nz/file/I3tC3Tzb#-e4HaWlB5zfMC2Q-ulL7itOIKY8C5Dqqqdffy2MuhDs', '_blank')">İndir</button>
-      </div>
-      
-      <!-- HOİ4 & HOİ4 Yama -->
-      <div class="game">
-        <img src="hoi4.jpg" alt="Hearts of Iron IV">
-        <h2>Hearts of Iron IV</h2>
-        <p>Hearts of Iron IV, Paradox Development Studio tarafından geliştirilen ve Paradox Interactive tarafından yayımlanan büyük strateji savaş oyunudur.</p>
-        <button onclick="window.open('https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB', '_blank')">İndir</button>
-        <button onclick="window.open('https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view', '_blank')">Yama</button>
-      </div>
-      
-      <!-- Forest -->
-      <div class="game">
-        <img src="thefrost.jpg" alt="Forest">
-        <h2>Forest</h2>
-        <p>Forest, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan bir hayatta kalma oyunudur.</p>
-        <button onclick="window.open('https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74urev4MivgHCLZyDINn', '_blank')">İndir</button>
-      </div>
-      
-      <!-- Subnautica -->
-      <div class="game">
-        <img src="subnautav.jpeg" alt="Subnautica">
-        <h2>Subnautica</h2>
-        <p>Subnautica, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan açık dünya aksiyon-macera oyunudur.</p>
-        <button onclick="window.open('https://drive.usercontent.google.com/download?id=1zwZdRJ9fKuZiGAuitM8Jc5Lie6ZFNlOf', '_blank')">İndir</button>
-      </div>
-      
-      <!-- Assasins Creed 4 Black Flag -->
-      <div class="game">
-        <img src="ascrak4.jpg" alt="Assasins Creed 4 Black Flag">
-        <h2>Assasins Creed 4 Black Flag</h2>
-        <p>Assassin's Creed IV: Black Flag, Ubisoft Montreal tarafından geliştirilen ve Ubisoft tarafından yayımlanan 2013 yapımı bir aksiyon-macera video oyunudur.</p>
-        <button onclick="window.open('https://drive.usercontent.google.com/download?id=1h-l9kdu7FfG-q-9wfJ0PGPFjEaG6Fp6P&export=download&authuser=0', '_blank')">İndir</button>
-      </div>
-      
-    </section>
-  </main>
-  
-  <!-- Footer -->
-  <footer>
-    Bu sayfa LostBlood tarafından yapılmıştır. 
-  </footer>
-  
-  <script>
-    // Geri Dön İşlevi
-    function goToMainMenu() {
-      window.location.href = 'index.html';
-    }
-    
-    // Yükleme ekranı animasyonu
-    window.onload = function() {
-      document.querySelector(".progress").style.width = "100%";
-      setTimeout(function() {
-        document.getElementById("loadingScreen").style.display = "none";
-      }, 3000);
-    };
-  </script>
-</body>
+    // Yükleme ekranı animasyonu  
+    window.onload = function() {  
+      document.querySelector(".progress").style.width = "100%";  
+      setTimeout(function() {  
+        document.getElementById("loadingScreen").style.display = "none";  
+      }, 3000);  
+    };  
+  </script>  </body>  
 </html>
-
