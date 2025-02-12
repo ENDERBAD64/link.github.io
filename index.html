@@ -170,6 +170,7 @@
     footer a {
       color: var(--accent-color);
       cursor: pointer;
+      margin: 0 5px;
     }
     
     /* Tarih & Saat */
@@ -203,6 +204,30 @@
     }
     
     #about button:hover {
+      background-color: var(--accent-color);
+    }
+    
+    /* Son Güncellemeler Sayfası */
+    #update {
+      display: none;
+      animation: fadeIn 0.8s forwards;
+      max-width: 600px;
+      margin: 30px auto;
+      line-height: 1.6;
+    }
+    
+    #update button {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+    
+    #update button:hover {
       background-color: var(--accent-color);
     }
     
@@ -280,7 +305,9 @@
   
   <!-- Footer -->
   <footer>
-    Bu site ENDERBAD_64 tarafından yapılmıştır. <a onclick="showAbout()">Hakkımızda</a>
+    Bu site ENDERBAD_64 tarafından yapılmıştır. 
+    <a onclick="showAbout()">Hakkımızda</a> | 
+    <a onclick="showCategory('update')">Son Güncellemeler</a>
   </footer>
   
   <!-- Tarih & Saat -->
@@ -289,13 +316,17 @@
   <!-- Hakkımızda Sayfası -->
   <div id="about" class="category">
     <h2>Hakkımızda</h2>
-    <p>Bu site, Kolay oyun erişimi için yapılmıştır herhangi bir maddi geliri yoktur.
-<br> Geliştiriciler: ENDERBAD_64 & Semih</p>
+    <p>Bu site, Kolay oyun erişimi için yapılmıştır; herhangi bir maddi geliri yoktur.<br>
+       Geliştiriciler: ENDERBAD_64 & Semih</p>
+    <button onclick="goToMainMenu()">Ana Menü</button>
   </div>
+  
+  <!-- Son Güncellemeler Sayfası -->
   <div id="update" class="category">
-    <h2>Son güncellemeler</h2>
-    <p>V2.9 latest version<bir>
--Mobil desteği eklenmiştir artık mobil arayüz daha stabil</p>
+    <h2>Son Güncellemeler</h2>
+    <p>V3.0 Beta version<br>
+       - Mobil desteği eklenmiştir, artık mobil arayüz daha stabil.<bir>
+-Hatalar onarıldı</p>
     <button onclick="goToMainMenu()">Ana Menü</button>
   </div>
   
