@@ -19,7 +19,7 @@
     /* Main İçerik */
     main {
       padding: 20px;
-      margin-bottom: 80px; /* Footer için alt boşluk */
+      margin-bottom: 80px; /* Footer alanı için alt boşluk */
     }
     
     section {
@@ -115,7 +115,7 @@
       margin-top: 20px;
     }
     
-    /* Footer (1. koddakine benzer stil) */
+    /* Footer */
     footer {
       position: fixed;
       bottom: 0;
@@ -171,91 +171,76 @@
     <section id="games">
       <h2>Tüm Oyunlar</h2>
       
+      <!-- My Summer Car (Ana sayfadaki "My Summer Car" linki) -->
       <div class="game">
-        <img src="mysummer.jpg" alt="My Summer Car">
+        <img src="image/mysummer.jpg" alt="My Summer Car">
         <h2>My Summer Car</h2>
         <p>My Summer Car, araç simülasyon oyunu olmasının yanında bir hayatta kalma oyunudur.</p>
-        <button onclick="downloadGame('oyun1.zip')">İndir</button>
-        <button onclick="downloadGame('oyun1.zip')">Save dosyası</button>
+        <button onclick="window.open('https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8', '_blank')">İndir</button>
+        <button onclick="window.open('https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8', '_blank')">Save dosyası</button>
       </div>
       
+      <!-- Farming Simulator 2013 -->
       <div class="game">
-        <img src="farming.jpg" alt="Farming Simulator 2013">
+        <img src="image/farming.jpg" alt="Farming Simulator 2013">
         <h2>Farming Simülatör 2013</h2>
         <p>Farming Simulator, Giants Software tarafından geliştirilen çiftlik simülasyonu üzerine kurulu video oyunu serisidir.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
+        <button onclick="window.open('https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg', '_blank')">İndir</button>
       </div>
       
+      <!-- Templar 2 -->
       <div class="game">
-        <img src="templar 2.jpg" alt="Templar 2">
+        <img src="image/templar 2.jpg" alt="Templar 2">
         <h2>Templar 2</h2>
         <p>Kızıl Veba, yeryüzünde destansı bir kaos yaratarak ölenleri korkunç iblislere dönüştürdü.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
+        <button onclick="window.open('https://mega.nz/file/I3tC3Tzb#-e4HaWlB5zfMC2Q-ulL7itOIKY8C5Dqqqdffy2MuhDs', '_blank')">İndir</button>
       </div>
       
+      <!-- HOİ4 & HOİ4 Yama -->
       <div class="game">
-        <img src="thefrost.jpg" alt="The Forest">
-        <h2>The Forest</h2>
-        <p>The Forest, Endnight Games tarafından geliştirilen ve yayınlanan bir hayatta kalma video oyunudur.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
-      </div>
-      
-      <div class="game">
-        <img src="subnautav.jpeg" alt="Subnautica">
-        <h2>Subnautica</h2>
-        <p>Subnautica, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan açık dünya aksiyon-macera oyunudur.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
-      </div>
-      
-      <div class="game">
-        <img src="ascrak4.jpg" alt="Assasins Creed 4 Black Flag">
-        <h2>Assasins Creed 4 Black Flag</h2>
-        <p>Assassin's Creed IV: Black Flag, Ubisoft Montreal tarafından geliştirilen ve Ubisoft tarafından yayımlanan 2013 yapımı bir aksiyon-macera video oyunudur.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
-      </div>
-      
-      <div class="game">
-        <img src="hoi4.jpg" alt="Hearts of Iron IV">
+        <img src="image/hoi4.jpg" alt="Hearts of Iron IV">
         <h2>Hearts of Iron IV</h2>
         <p>Hearts of Iron IV, Paradox Development Studio tarafından geliştirilen ve Paradox Interactive tarafından yayımlanan büyük strateji savaş oyunudur.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
-        <button onclick="downloadGame('oyun4.zip')">Yama</button>
+        <button onclick="window.open('https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB', '_blank')">İndir</button>
+        <button onclick="window.open('https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view', '_blank')">Yama</button>
       </div>
       
+      <!-- Forest -->
       <div class="game">
-        <img src="cs16.png" alt="CS 1.6">
-        <h2>CS 1.6</h2>
-        <p>Counter-Strike, Valve tarafından geliştirilen birinci şahıs nişancı oyunudur.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
+        <img src="image/forest.jpg" alt="Forest">
+        <h2>Forest</h2>
+        <p>Forest, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan bir hayatta kalma oyunudur.</p>
+        <button onclick="window.open('https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74urev4MivgHCLZyDINn', '_blank')">İndir</button>
       </div>
       
+      <!-- Subnautica -->
       <div class="game">
-        <img src="gta4.jpg" alt="GTA IV">
-        <h2>GTA IV</h2>
-        <p>Grand Theft Auto IV, Rockstar North tarafından geliştirilen ve Rockstar Games tarafından yayınlanan 2008 yapımı bir aksiyon-macera oyunudur.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
+        <img src="image/subnautav.jpeg" alt="Subnautica">
+        <h2>Subnautica</h2>
+        <p>Subnautica, Unknown Worlds Entertainment tarafından geliştirilen ve yayınlanan açık dünya aksiyon-macera oyunudur.</p>
+        <button onclick="window.open('https://drive.usercontent.google.com/download?id=1zwZdRJ9fKuZiGAuitM8Jc5Lie6ZFNlOf', '_blank')">İndir</button>
       </div>
       
+      <!-- Assasins Creed 4 Black Flag -->
       <div class="game">
-        <img src="nfs2.jpg" alt="Need For Speed 2">
-        <h2>Need For Speed 2</h2>
-        <p>Need for Speed: Underground 2, EA Black Box tarafından geliştirilip Electronic Arts tarafından 2004 Mayıs ayında yayımlanmıştır.</p>
-        <button onclick="downloadGame('oyun2.zip')">İndir</button>
+        <img src="image/ascrak4.jpg" alt="Assasins Creed 4 Black Flag">
+        <h2>Assasins Creed 4 Black Flag</h2>
+        <p>Assassin's Creed IV: Black Flag, Ubisoft Montreal tarafından geliştirilen ve Ubisoft tarafından yayımlanan 2013 yapımı bir aksiyon-macera video oyunudur.</p>
+        <button onclick="window.open('https://drive.usercontent.google.com/download?id=1h-l9kdu7FfG-q-9wfJ0PGPFjEaG6Fp6P&export=download&authuser=0', '_blank')">İndir</button>
       </div>
+      
     </section>
   </main>
   
   <!-- Footer -->
   <footer>
-    Bu site Lost_Blood tarafından yapılmıştır.
+    Bu site ENDERBAD_64 tarafından yapılmıştır.
+    <a onclick="showAbout()">Hakkımızda</a> |
+    <a onclick="showUpdates()">Son Güncellemeler</a>
   </footer>
   
   <script>
-    // İndirme işlemi için örnek fonksiyon
-    function downloadGame(file) {
-      window.location.href = file;
-    }
-    
+    // Geri Dön İşlevi
     function goToMainMenu() {
       window.location.href = 'index.html';
     }
@@ -268,8 +253,14 @@
       }, 3000);
     };
     
+    // Footer linkleri için placeholder fonksiyonlar
+    function showAbout() {
+      alert("Hakkımızda sayfası");
+    }
     
+    function showUpdates() {
+      alert("Son Güncellemeler sayfası");
+    }
   </script>
 </body>
 </html>
-
