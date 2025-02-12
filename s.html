@@ -32,6 +32,8 @@
       padding: 15px;
       margin: 10px 0;
       border-radius: 8px;
+      /* Animasyon eklendi */
+      animation: fadeInUp 0.8s ease-out;
     }
     
     .game img {
@@ -127,6 +129,8 @@
       box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
       text-align: center;
       z-index: 50;
+      /* Animasyon eklendi */
+      animation: fadeIn 1s ease-out;
     }
     
     footer a {
@@ -153,6 +157,38 @@
         font-size: 20px;
       }
     }
+    
+    /* Yeni Animasyonlar */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Uygulanan Animasyonlar */
+    #games h2 {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    /* Her oyun kartı için artan gecikme */
+    #games .game:nth-child(1) { animation-delay: 0.2s; }
+    #games .game:nth-child(2) { animation-delay: 0.4s; }
+    #games .game:nth-child(3) { animation-delay: 0.6s; }
+    #games .game:nth-child(4) { animation-delay: 0.8s; }
+    #games .game:nth-child(5) { animation-delay: 1s; }
+    #games .game:nth-child(6) { animation-delay: 1.2s; }
+    #games .game:nth-child(7) { animation-delay: 1.4s; }
+    
   </style>
 </head>
 <body>
