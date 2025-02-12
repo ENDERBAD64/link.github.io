@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crack Game</title>
+  <!-- Google Fonts: Roboto -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* CSS Değişkenleri ile modern renk paleti */
     :root {
       --bg-color: #121212;
       --primary-color: #e91e63;
@@ -20,6 +22,7 @@
       box-sizing: border-box;
     }
     
+    /* Genel stil */
     body {
       margin: 0;
       padding: 0;
@@ -35,6 +38,7 @@
       to { opacity: 1; }
     }
     
+    /* Yüklenme Animasyonu */
     .loader {
       position: fixed;
       top: 0;
@@ -46,7 +50,8 @@
       align-items: center;
       justify-content: center;
       z-index: 10000;
-      animation: fadeOut 1s forwards 1s;
+      /* Süreyi kısalttık */
+      animation: fadeOut 1.5s forwards 2s;
     }
     
     @keyframes fadeOut {
@@ -66,6 +71,20 @@
       to { transform: rotate(360deg); }
     }
     
+    /* Başlık */
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      animation: slideDown 0.8s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Kategori Butonları */
     .category-buttons {
       display: flex;
       justify-content: center;
@@ -90,11 +109,18 @@
       transform: translateY(-2px);
     }
     
+    /* Liste Stilleri */
     ul {
       list-style: none;
       padding: 0;
       max-width: 600px;
       margin: 20px auto;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
     
     li {
@@ -121,12 +147,17 @@
       text-decoration: underline;
     }
     
+    /* Footer */
     footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
       background-color: var(--bg-color);
       color: var(--primary-color);
       padding: 15px;
       font-size: 0.9rem;
       box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+      animation: fadeIn 1s forwards;
     }
     
     footer a {
@@ -134,22 +165,31 @@
       cursor: pointer;
     }
     
+    /* Tarih & Saat */
+    #datetime {
+      position: fixed;
+      bottom: 60px;
+      left: 20px;
+      color: var(--primary-color);
+      font-size: 0.9rem;
+      animation: fadeIn 1s forwards;
+    }
+    
+    /* Kategori Gizleme ve Gösterme */
     .category {
       display: none;
     }
-
+    
+    /* Hakkımızda Sayfası */
     #about {
       display: none;
       animation: fadeIn 0.8s forwards;
-    }
-
-    #about p {
       max-width: 600px;
       margin: 30px auto;
       line-height: 1.6;
     }
-
-    .back-button {
+    
+    #about button {
       background-color: var(--primary-color);
       color: var(--text-color);
       border: none;
@@ -160,23 +200,26 @@
       margin-top: 20px;
     }
     
-    .back-button:hover {
+    #about button:hover {
       background-color: var(--accent-color);
     }
   </style>
 </head>
 <body>
+  <!-- Yüklenme Animasyonu -->
   <div class="loader">
     <div class="spinner"></div>
   </div>
   
   <h1>Crack Games</h1>
   
+  <!-- Kategori Butonları -->
   <div class="category-buttons">
     <button onclick="showCategory('games')">Oyunlar</button>
     <button onclick="showCategory('apps')">Uygulamalar</button>
   </div>
   
+  <!-- Oyunlar Kategorisi -->
   <div id="games" class="category">
     <h2>Oyunlar</h2>
     <ul>
@@ -185,39 +228,65 @@
       <li><a href="https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB" target="_blank">HOİ4</a></li>
       <li><a href="https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view" target="_blank">HOİ4 Yama</a></li>
       <li><a href="https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8" target="_blank">My Summer Car</a></li>
+      <!-- Yeni eklenen oyunlar -->
       <li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74urev4MivgHCLZyDINn" target="_blank">Forest</a></li>
       <li><a href="https://drive.usercontent.google.com/download?id=1zwZdRJ9fKuZiGAuitM8Jc5Lie6ZFNlOf" target="_blank">Subnautica</a></li>
     </ul>
   </div>
   
-  <div id="about">
-    <h2>Hakkımızda</h2>
-    <p>Bu site, kullanıcıların çeşitli oyunları ve uygulamaları indirebilmesi için yapılmıştır. Tüm içerikler bilgilendirme amaçlıdır ve dosyaların sorumluluğu siteye ait değildir.</p>
-    <button class="back-button" onclick="goToMainMenu()">Ana Menü</button>
+  <!-- Uygulamalar Kategorisi -->
+  <div id="apps" class="category">
+    <h2>Uygulamalar</h2>
+    <ul>
+      <li><a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh" target="_blank">Ublock-origin-lite – Eklenti</a></li>
+    </ul>
   </div>
   
+  <!-- Footer -->
   <footer>
     Bu site ENDERBAD_64 tarafından yapılmıştır. <a onclick="showAbout()">Hakkımızda</a>
   </footer>
+  
+  <!-- Tarih & Saat -->
+  <div id="datetime"></div>
+  
+  <!-- Hakkımızda Sayfası -->
+  <div id="about" class="category">
+    <h2>Hakkımızda</h2>
+    <p>Bu site, kullanıcıların çeşitli oyunları ve uygulamaları indirebilmesi için oluşturulmuştur. Tüm içerikler bilgilendirme amaçlıdır ve dosyaların sorumluluğu siteye ait değildir.</p>
+    <button onclick="goToMainMenu()">Ana Menü</button>
+  </div>
   
   <script>
     function showCategory(category) {
       document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
       document.getElementById(category).style.display = 'block';
     }
+    
     function showAbout() {
+      // Tüm ana içeriği gizle ve geçici bir "loader" efekti verelim
+      document.querySelector('h1').style.display = 'none';
+      document.querySelector('.category-buttons').style.display = 'none';
+      document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
       document.body.style.opacity = '0';
       setTimeout(() => {
         document.body.style.opacity = '1';
-        document.querySelector('h1').style.display = 'none';
-        document.querySelector('.category-buttons').style.display = 'none';
-        document.querySelectorAll('.category').forEach(cat => cat.style.display = 'none');
         document.getElementById('about').style.display = 'block';
       }, 1000);
     }
+    
     function goToMainMenu() {
       location.reload();
     }
+    
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById('datetime').innerText = now.toLocaleString('tr-TR');
+    }
+    
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
   </script>
 </body>
 </html>
+
