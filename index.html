@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -38,6 +37,11 @@
     @keyframes fadeIn {
       to { opacity: 1; }
     }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
     
     /* Yüklenme Animasyonu */
     .loader {
@@ -76,12 +80,7 @@
       margin-top: 40px;
       font-size: 2.5rem;
       letter-spacing: 1px;
-      animation: slideDown 0.8s ease-out;
-    }
-    
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      animation: slideIn 1s ease-out;
     }
     
     /* Kategori Butonları */
@@ -147,43 +146,11 @@
       text-decoration: underline;
     }
     
-    /* Hakkımızda ve Son Güncellemeler Animasyonu */
-    @keyframes slideIn {
-      from {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-    }
-
-    /* Hakkımızda ve Son Güncellemeler Animasyonlu Görünüm */
-    #about, #update {
-      display: none;
-      animation: slideIn 1s forwards;
-    }
-
     /* Kategori Alanı – Her Zaman Kaydırma */
     .category {
       display: none;
-    }
-
-    .category.active {
-      display: block;
-      animation: slideIn 1s forwards;
+      height: calc(100vh - 200px);
+      overflow-y: scroll;
     }
     
     /* Footer */
@@ -317,7 +284,12 @@
     <ul>
       <li><a href="https://mega.nz/file/I3tC3Tzb#-e4HaWlB5zfMC2Q-ulL7itOIKY8C5Dqqqdffy2MuhDs" target="_blank">Templar 2</a></li>
       <li><a href="https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg" target="_blank">Farming Simulator 2013</a></li>
-      <li><a href="https://drive.usercontent.google.com/download?id=11tzDwHwt1vbrxc9SH0diHVAsMK614ntg" target="_blank">Grand Theft Auto V</a></li>
+      <li><a href="https://drive.usercontent.google.com/download?id=171XLfbNa5ddnDNJl6XRdLAa6iUEWUIsB" target="_blank">HOİ4</a></li>
+      <li><a href="https://drive.google.com/file/d/1RRnV7op-wfHEy5NVvertHs7W15Go75iJ/view" target="_blank">HOİ4 Yama</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1n_fqIkfbWNOdTyb3d2dHBL0-GqbZ4eO8" target="_blank">My Summer Car</a></li>
+      <li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74ure
+
+<li><a href="https://drive.usercontent.google.com/download?id=1a2W2iJu8CrYZ74ureYYw6fM9I1mcIK0T" target="_blank">Farming Simulator 2022</a></li>
     </ul>
   </div>
   
@@ -325,70 +297,48 @@
   <div id="apps" class="category">
     <h2>Uygulamalar</h2>
     <ul>
-      <li><a href="#">Spotify Premium</a></li>
-      <li><a href="#">Adobe Photoshop 2023</a></li>
+      <li><a href="https://example.com" target="_blank">Example App 1</a></li>
+      <li><a href="https://example.com" target="_blank">Example App 2</a></li>
+      <li><a href="https://example.com" target="_blank">Example App 3</a></li>
     </ul>
   </div>
   
-  <!-- Hakkımızda ve Son Güncellemeler -->
-  <div id="about">
-    <h2>Hakkımızda</h2>
-    <p>Crack Games, çeşitli popüler oyunlar ve yazılımlar ile ilgilenen bir platformdur. Amacımız kullanıcılara kaliteli içerikler sunmaktır.</p>
-    <button onclick="hideContent('about')">Geri</button>
-  </div>
-
-  <div id="update">
-      <h2>Son Güncellemeler</h2>
-       <p> V3.1 Beta version<br>
-        -Yeni animasyonlar (hakkımızda&son güncellemeler)<br>
--Arayüz hataları onarıldı<p>
-       <p> V3.0 Beta version<br>
-      -Arayüz hataları onarıldı<p>
-    <p>V2.9 Beta version<br>
-       - Mobil desteği eklenmiştir, artık mobil arayüz daha stabil.</p>
-    <button onclick="hideContent('update')">Geri</button>
-  </div>
-
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Crack Games</p>
+    <p>© 2025 Crack Games. Tüm hakları saklıdır.</p>
   </footer>
   
   <!-- Tarih ve Saat -->
-  <div id="datetime">
-    <p id="time"></p>
-  </div>
-
+  <div id="datetime"></div>
+  
   <script>
-    // Tarih ve saat güncellemeleri
-    function updateTime() {
-      const date = new Date();
-      const time = date.toLocaleString();
-      document.getElementById('time').innerText = time;
+    // Tarih ve saat gösterimi
+    function updateDatetime() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      const day = now.toLocaleDateString('tr-TR', { weekday: 'long' });
+      const timeString = `${day} - ${hours}:${minutes}:${seconds}`;
+      document.getElementById('datetime').innerText = timeString;
     }
-    setInterval(updateTime, 1000);
-
-    // Kategori gösterimi
+    setInterval(updateDatetime, 1000);
+    
+    // Kategori gösterme
     function showCategory(category) {
-      document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
-      document.getElementById(category).classList.add('active');
+      document.querySelectorAll('.category').forEach(c => c.style.display = 'none');
+      document.getElementById(category).style.display = 'block';
     }
 
-    // Hakkımızda ve Son Güncellemeler Sayfasını Gösterme
-    function showContent(content) {
-      document.getElementById(content).style.display = 'block';
-    }
-    
-    function hideContent(content) {
-      document.getElementById(content).style.display = 'none';
-    }
-    
-    // Sayfa Yüklenirken Başlangıçta Yükleme Animasyonunu Kapatma
-    window.onload = () => {
-      setTimeout(() => {
-        document.querySelector('.loader').style.display = 'none';
-      }, 2500);
-    };
+    // Yüklenme animasyonunun kaldırılması
+    window.addEventListener('load', () => {
+      document.querySelector('.loader').style.display = 'none';
+      document.body.style.opacity = '1';
+    });
+
+    // İlk başta oyunlar kategorisini göster
+    showCategory('games');
   </script>
 </body>
 </html>
+
